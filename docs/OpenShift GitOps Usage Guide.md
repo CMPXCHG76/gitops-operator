@@ -821,7 +821,7 @@ Notifications are disabled by default. Please refer to [upstream documentation](
 
 #### Deploy resources to a different namespace
 
-To grant Argo CD the permissions to manage resources in multiple namespaces, we need to configure the namespace with a label **"Argo CD.argoproj.io/managed-by"** and the value being the **namespace** of the Argo CD instance meant to manage the namespace. 
+To grant Argo CD the permissions to manage resources in multiple namespaces, we need to configure the namespace with a label **"Argo CD.argoproj.io/managed-by"** and the value being the **instance name of the ArgoCD instance (argocd.argoproj.io) i.e. ocp-gitops ** of the Argo CD instance meant to manage the namespace. 
 
 **Example**: For Argo CD instance deployed in the namespace `foo` wants to manage resources in namespace `bar`.
 
@@ -833,7 +833,7 @@ kind: Namespace
 metadata:
   name: bar // new namespace to be managed by an existing Argo CD instance
   labels:
-    argocd.argoproj.io/managed-by: foo // namespace of the Argo CD instance
+    argocd.argoproj.io/managed-by: foo // name of the Argo CD (argocd.argoproj.io) instance , 
 ```
 
 
